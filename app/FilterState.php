@@ -2,11 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\Model;
 
 class FilterState extends Model
 {
     protected $fillable = [
-        'act_dp', 'dp', 'filter_satur',
+        'act_dp', 'dp', 'filter_satur', 'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth.basic')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('v1.0/tasks', 'TaskController@createTask')->middleware('basic.auth.once')->name('v1.0-tasks');
-Route::post('v1.0/scadas', 'TaskController@createScadas')->middleware('basic.auth.once')->name('v1.0-scadas');
+Route::post('v1.0/tasks', 'TaskController@createTask')->middleware('auth.basic')->name('v1.0-tasks');
+Route::post('v1.0/scadas', 'TaskController@createScadas')->middleware('auth.basic')->name('v1.0-scadas');

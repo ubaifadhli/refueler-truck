@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ResponseService;
 use App\Services\ScadasService;
 use App\Services\TaskService;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    private $taskService;
-    private $scadasService;
-
-    public function __construct() {
-        $this->taskService = new TaskService();
-        $this->scadasService = new ScadasService();
-    }
-
     public function createTask(Request $request) {
         $this->validate($request, [
             'val' => 'required',
@@ -26,10 +19,22 @@ class TaskController extends Controller
             $logType = explode(',', $valResponse);
             switch ($logType[0]) {
                 case '9':
-                    $this->taskService->getSystemError09($valResponse);
+                    $result = (new TaskService())->saveSystemError($logType);
+                    return ResponseService::getResponse($result);
+                    break;
+                case '11':
+                    $result = (new TaskService())->saveTransfer($logType);
+                    return ResponseService::getResponse($result);
                     break;
             }
+        } elseif (strpos($request->input('val'), 'Warnings') || strpos($request->input('val'), 'Warning')) {
+            $warningValue = explode('=', $request->input('val'))[1];
+            $result = (new TaskService())->saveWarning($warningValue);
+
+            return ResponseService::getResponse($result);
         }
+
+        return ResponseService::getResponse(-1);
     }
 
     public function createScadas(Request $request) {
@@ -39,10 +44,16 @@ class TaskController extends Controller
 
         if (strpos($request->input('val'), 'Meter_State')) {
             $meterStateValues = explode('=', $request->input('val'))[1];
-            $this->scadasService->getMeterState(explode(',', $meterStateValues));
+            $result = (new ScadasService())->createMeterState(explode(',', $meterStateValues));
+
+            return ResponseService::getResponse($result);
         } elseif (strpos($request->input('val'), 'FilterState')) {
             $filterStateValues = explode('=', $request->input('val'))[1];
-            $this->scadasService->getFilterState(explode(',', $filterStateValues));
+            $result = (new ScadasService())->createFilterState(explode(',', $filterStateValues));
+
+            return ResponseService::getResponse($result);
         }
+
+        return ResponseService::getResponse(-1);
     }
 }
