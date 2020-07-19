@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ResponseService;
+use App\Services\APIResponseService;
 use App\Services\ScadasService;
 use App\Services\TaskService;
 use Illuminate\Http\Request;
@@ -20,21 +20,21 @@ class TaskController extends Controller
             switch ($logType[0]) {
                 case '9':
                     $result = (new TaskService())->saveSystemError($logType);
-                    return ResponseService::getResponse($result);
+                    return APIResponseService::getResponse($result);
                     break;
                 case '11':
                     $result = (new TaskService())->saveTransfer($logType);
-                    return ResponseService::getResponse($result);
+                    return APIResponseService::getResponse($result);
                     break;
             }
         } elseif (strpos($request->input('val'), 'Warnings') || strpos($request->input('val'), 'Warning')) {
             $warningValue = explode('=', $request->input('val'))[1];
             $result = (new TaskService())->saveWarning($warningValue);
 
-            return ResponseService::getResponse($result);
+            return APIResponseService::getResponse($result);
         }
 
-        return ResponseService::getResponse(-1);
+        return APIResponseService::getResponse(-1);
     }
 
     public function createScadas(Request $request) {
@@ -46,14 +46,14 @@ class TaskController extends Controller
             $meterStateValues = explode('=', $request->input('val'))[1];
             $result = (new ScadasService())->createMeterState(explode(',', $meterStateValues));
 
-            return ResponseService::getResponse($result);
+            return APIResponseService::getResponse($result);
         } elseif (strpos($request->input('val'), 'FilterState')) {
             $filterStateValues = explode('=', $request->input('val'))[1];
             $result = (new ScadasService())->createFilterState(explode(',', $filterStateValues));
 
-            return ResponseService::getResponse($result);
+            return APIResponseService::getResponse($result);
         }
 
-        return ResponseService::getResponse(-1);
+        return APIResponseService::getResponse(-1);
     }
 }

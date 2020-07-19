@@ -10,6 +10,10 @@ class SystemError extends Model
         'timestamp', 'dev_id', 'error_code', 'rcpt_no', 'met_no', 'submod_id', 'err_add', 'user_id',
     ];
 
+    protected $dates = [
+        'timestamp',
+    ];
+
     public function errorInfo() {
         return $this->embedsMany(ErrorInfo::class);
     }

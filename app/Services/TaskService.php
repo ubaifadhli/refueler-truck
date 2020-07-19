@@ -10,26 +10,26 @@ use Illuminate\Support\Carbon;
 
 class TaskService
 {
-    public function saveSystemError(array $logFile) : int {
-        if (count($logFile) < 8) {
+    public function saveSystemError(array $errorFile) : int {
+        if (count($errorFile) < 8) {
             return -1;
         }
         try {
             $systemError = new SystemError();
-            $systemError->timestamp = $this->getCarbonDateFromString($logFile[1]);
-            $systemError->dev_id = $logFile[2];
-            $systemError->error_code = $logFile[3];
-            $systemError->rcpt_no = $logFile[4];
-            $systemError->met_no = $logFile[5];
-            $systemError->submod_id = $logFile[6];
-            $systemError->err_add = $logFile[7];
+            $systemError->timestamp = $this->getCarbonDateFromString($errorFile[1]);
+            $systemError->dev_id = $errorFile[2];
+            $systemError->error_code = $errorFile[3];
+            $systemError->rcpt_no = $errorFile[4];
+            $systemError->met_no = $errorFile[5];
+            $systemError->submod_id = $errorFile[6];
+            $systemError->err_add = $errorFile[7];
             $systemError->user_id = auth()->user()->id;
             $systemError->save();
 
-            if ($logFile[7] != '0') {
-                for ($i = 8; $i < count($logFile); $i++) {
+            if ($errorFile[7] != '0') {
+                for ($i = 8; $i < count($errorFile); $i++) {
                     $systemError->errorInfo()->create([
-                        'value' => $logFile[$i],
+                        'value' => $errorFile[$i],
                     ]);
                 }
             }
