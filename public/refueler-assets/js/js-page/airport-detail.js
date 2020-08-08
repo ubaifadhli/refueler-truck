@@ -42,7 +42,7 @@ var config = {
 	},
 	options: {
 		responsive: true,
-		aspectRatio:4,
+		aspectRatio:3,
 		title: {
 			display: true,
 			text: 'Chart sample'
@@ -79,46 +79,63 @@ var config = {
 
 a = [
  {
-   "Name": "Soekarno Hatta",
-   "Total Transaction": 35,
-   "Total Volume": 34234562
+   "Name": "Jua-01",
+   "Status": "off",
+   "Interlock Status": "off",
+   "Total Transaction": 24,
+   "Total Volume(L)": 234526
  },
  {
-   "Name": "Juanda",
-   "Total Transaction": 30,
-   "Total Volume": 47583654
+   "Name": "Jua-02",
+   "Status": "on",
+   "Interlock Status": "on",
+   "Total Transaction": 63,
+   "Total Volume(L)": 253462
  },
  {
-   "Name": "Kertajati",
-   "Total Transaction": 17,
-   "Total Volume": 78546223
+   "Name": "Jua-03",
+   "Status": "on",
+   "Interlock Status": "on",
+   "Total Transaction": 12,
+   "Total Volume(L)": 483238
  },
  {
-   "Name": "Ngurah Rai",
-   "Total Transaction": 29,
-   "Total Volume": 74865908
+   "Name": "Jua-04",
+   "Status": "off",
+   "Interlock Status": "on",
+   "Total Transaction": 23,
+   "Total Volume(L)": 21665
  },
  {
-   "Name": "Kualanamu",
-   "Total Transaction": 20,
-   "Total Volume": 42346533
+   "Name": "Jua-05",
+   "Status": "on",
+   "Interlock Status": "on",
+   "Total Transaction": 81,
+   "Total Volume(L)": 956323
  }
 ];
 
 
-
 window.onload = function() {
-	config.options.legend.display = false;
 	var ctx1 = document.getElementById('canvas1').getContext('2d');
 	window.myLine1 = new Chart(ctx1, config);
+
+	config.options.aspectRatio = 1;
+	config.options.legend.display = false;
+	var ctx2 = document.getElementById('canvas2').getContext('2d');
+	window.myLine2 = new Chart(ctx2, config);
+	var ctx3 = document.getElementById('canvas3').getContext('2d');
+	window.myLine3 = new Chart(ctx3, config);
+	var ctx4 = document.getElementById('canvas4').getContext('2d');
+	window.myLine4 = new Chart(ctx4, config);	
 
 	setTimeout(function(){
 		createTable(a,"table1"); 
 	},1000);
+	
 	setTimeout(function(){
 		$('tbody').click(function(){
-			window.location.href="airport-detail.html";
-		});
+			window.location.href="unit-log.html";
+		})
 	},1000);
-	
 };

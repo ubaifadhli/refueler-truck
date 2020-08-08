@@ -1,48 +1,62 @@
-function createTable(jsonData, table_id){
-    //json keys
-    var keys = Object.keys(jsonData[0]);
+function getToken() {
+  return localStorage.token;
+}
 
-    //emptied the container
-    var deleteChild = document.getElementById(table_id);
-    deleteChild.innerHTML = '';
+function components(){};//components data
+$.get('components.html', null, function(text){
+    components.table = $(text).find('.component'+'.table')[0].cloneNode(true);
+    components.tableHeaderCell = components.table.getElementsByTagName('th')[0];
+    components.tableRow = components.table.getElementsByTagName('tr')[1];
+    components.tableCell = components.table.getElementsByTagName('td')[0];
+});
 
-    //create table html
-    var table = document.createElement('table');
+function createTable(jsonData, tableID){
+  var headers = Object.keys(jsonData[0]);
+  var table = components.table.cloneNode(true);
+  
+  //clear header cell
+  table.getElementsByTagName('tr')[0].innerHTML = '';
 
-    //header
-    var headerRow = document.createElement('tr');
-    headerRow.classList.add("data-header");
+  for (var i = 0; i < headers.length; i++) {
+    //making headers
+    var header = components.tableHeaderCell.cloneNode(true);
+    //edit text header
+    header.innerHTML = headers[i];
+    //add to table
+    table.getElementsByTagName('tr')[0].appendChild(header);
+  }
+
+  //clear body cell
+  table.getElementsByTagName('tbody')[0].innerHTML = '';
+
+  for (var r = 0; r < jsonData.length; r++) {
+    //making row
+    var row = components.tableRow.cloneNode(true);
     
-    for (var i = 0; i < keys.length; i++) {
-      var headerCell = document.createElement('td');
-      headerCell.classList.add(keys[i]);
-      headerCell.appendChild(document.createTextNode(keys[i]));
-      headerRow.appendChild(headerCell);
-      table.appendChild(headerRow);
+    //clear row from cells
+    row.innerHTML = '';
+
+    //add cell
+    for (var c = 0; c < headers.length; c++){
+      //making cell
+      var cell = components.tableCell.cloneNode(true);
+      //edit text cell
+      cell.innerHTML = jsonData[r][ headers[c] ];
+      //add to row
+      row.appendChild(cell);
     }
+    
+    //add to body cell
+    table.getElementsByTagName('tbody')[0].appendChild(row);
+  }
+  //return table;
 
-    //iterate through row
-    for (var rowIndex = 0; rowIndex < jsonData.length; rowIndex++) {
+  //change the id
+  table.id = tableID;
+  document.getElementById(tableID).replaceWith(table);
+}
 
-      //make a new row html
-      var row = document.createElement('tr');
-      //assign class or id
-      row.classList.add("data-"+jsonData[rowIndex][keys[0]]);
-
-      for (var columnIndex = 0; columnIndex < jsonData.length; columnIndex++) {
-        //make a new cell html
-        var cell = document.createElement('td');
-        //assign class or id
-        //cell.classList.add(jsonData[0][columnIndex]);
-        //insert the data
-        cell.appendChild(document.createTextNode(jsonData[rowIndex][keys[columnIndex]]));
-        //insert cell to row
-        row.appendChild(cell);
-      }
-
-      //insert row to table
-      table.appendChild(row);
-    }//
-    document.getElementById(table_id).appendChild(table);
-
+var a;
+function storeA(asdf) {
+  a = asdf;
 }

@@ -42,7 +42,7 @@ var config = {
 	},
 	options: {
 		responsive: true,
-		aspectRatio:4,
+		aspectRatio:3,
 		title: {
 			display: true,
 			text: 'Chart sample'
@@ -77,48 +77,19 @@ var config = {
 	}
 };
 
-a = [
- {
-   "Name": "Soekarno Hatta",
-   "Total Transaction": 35,
-   "Total Volume": 34234562
- },
- {
-   "Name": "Juanda",
-   "Total Transaction": 30,
-   "Total Volume": 47583654
- },
- {
-   "Name": "Kertajati",
-   "Total Transaction": 17,
-   "Total Volume": 78546223
- },
- {
-   "Name": "Ngurah Rai",
-   "Total Transaction": 29,
-   "Total Volume": 74865908
- },
- {
-   "Name": "Kualanamu",
-   "Total Transaction": 20,
-   "Total Volume": 42346533
- }
-];
-
-
-
 window.onload = function() {
-	config.options.legend.display = false;
 	var ctx1 = document.getElementById('canvas1').getContext('2d');
 	window.myLine1 = new Chart(ctx1, config);
+	var ctx2 = document.getElementById('canvas2').getContext('2d');
+	window.myLine2 = new Chart(ctx2, config);
+	config.options.aspectRatio = 5;
+	var ctx3 = document.getElementById('canvas3').getContext('2d');
+	window.myLine3 = new Chart(ctx3, config);
 
-	setTimeout(function(){
-		createTable(a,"table1"); 
-	},1000);
-	setTimeout(function(){
-		$('tbody').click(function(){
-			window.location.href="airport-detail.html";
-		});
-	},1000);
-	
+	$('#warning-notif').click(function(){
+		window.location.href="unit-warning.html";
+	});
+	$('#logButton').click(function(){
+		window.location.href="unit-log.html";
+	});
 };

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Avtur Refueler Truck">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!--<meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">-->
@@ -25,9 +27,9 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
     <!--[if lt IE 9]>
-    <script src="{{ asset('refueler-assets/js/html5shiv.js') }}"></script>
-{{--    <!- <script src="js/respond.min.js"></script>-->--}}
-    <script src="{{ asset('refueler-assets/js/lte-ie7.js') }}"></script>
+      <script src="{{ asset('refueler-assets/js/html5shiv.js') }}"></script>
+      <script src="{{ asset('refueler-assets/js/respond.min.js') }}"></script>
+      <script src="{{ asset('refueler-assets/js/lte-ie7.js') }}"></script>
     <![endif]-->
 
     <!-- =======================================================
@@ -44,60 +46,39 @@
 
     <!--sidebar start-->
     <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu">
-                <li class="">
-                    <a class="" href="{{ route('home') }}">
-                        <i class="icon_house_alt"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="{{ route('airport.index') }}">
-                        <i class="icon_genius"></i>
-                        <span>Airport</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="{{ route('unit.index') }}">
-                        <i class="icon_piechart"></i>
-                        <span>Units</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="{{ route('log.index') }}">
-                        <i class="icon_piechart"></i>
-                        <span>Logs</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        <i class="icon_close"></i>
-                        <span>Logout</span>
-                    </a>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu">
+          <li class="">
+            <a class="" href="{{ route('home') }}">
+                <i class="icon_house_alt"></i>
+                <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a class="" href="{{ route('airport.index') }}">
+                <i class="icon_genius"></i>
+                <span>Airport</span>
+            </a>
+          </li>
+          <li style="margin-top: 20em">
+            <a class="" href="{{ route('logout') }}"
+                onclick="logout()">
+                <i class="icon_close"></i>
+                <span>Logout</span>
+            </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </li>
-
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
     </aside>
     <!--sidebar end-->
     @yield('content')
 </section>
-<!--main content end-->
-{{--<div class="text-right">--}}
-{{--  <div class="credits">--}}
-{{--      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
 
 <script src="{{ asset('refueler-assets/js/jquery.js') }}"></script>
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
@@ -111,7 +92,21 @@
 <script src="{{ asset('refueler-assets/js/scripts.js') }}"></script>
 <script src="{{ asset('refueler-assets/js/js-page/page.js') }}"></script>
 <script src="{{ asset('refueler-assets/js/js-page/dashboard.js') }}"></script>
-
+<script>
+function logout() {
+    event.preventDefault();
+    document.getElementById('logout-form').submit();
+}
+</script>
+<style type="text/css">
+    #dashboard-image {
+      background-image: url("img/truk.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 20em;
+    }
+  </style>
 
 </body>
 
