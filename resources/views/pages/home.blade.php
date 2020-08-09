@@ -4,11 +4,11 @@
     <!-- page start-->
     <div class="row">
         <div id="profile-image" class="col-sm-1">
-        <img src="img/default-profile.jpg" class="rounded-circle img-fluid">
+            <img src="img/default-profile.jpg" class="rounded-circle img-fluid">
         </div>
         <div class="col-sm-4">
-        <h2>Dashboard</h2>
-        <h5>welcome back admin</h5>
+            <h2>Dashboard</h2>
+            <h5>welcome back admin</h5>
         </div>
     </div>
 

@@ -9,7 +9,7 @@ class AirportController extends Controller
 {
     public function index() {
         $airports = Airport::all();
-        return view('pages.airports', compact('airports'));
+        return view('pages.airports.index', compact('airports'));
     }
 
     public function create() {
@@ -29,5 +29,9 @@ class AirportController extends Controller
 
     public function show(Airport $airport) {
         return view('pages.airports', compact('airport'));
+    }
+
+    public function details($airportId) {
+        return view('pages.airports.details');
     }
 }

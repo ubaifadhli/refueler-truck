@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/airport', 'AirportController@index')->name('airport.index');
+    Route::get('/airport/{id}', 'AirportController@details')->name('airport.details');
     Route::get('/log', 'LogController@index')->name('log.index');
     Route::get('/unit', 'UnitController@index')->name('unit.index');
 });

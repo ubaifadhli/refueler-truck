@@ -105,8 +105,6 @@
   <script src="{{ asset('refueler-assets/js/Chart.min.js') }}"></script>
   <!--custome script for all page-->
   <script src="{{ asset('refueler-assets/js/scripts.js') }}"></script>
-  <script src="{{ asset('refueler-assets/js/js-page/page.js') }}"></script>
-  <script src="{{ asset('refueler-assets/js/js-page/dashboard.js') }}"></script>
   <script>
   function logout() {
       event.preventDefault();
