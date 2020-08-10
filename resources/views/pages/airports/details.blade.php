@@ -9,13 +9,7 @@
         </a>
       </div>
       <div>
-        <h3 class="font-weight-bold">Log Report</h3>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="p-2">Unit</div>
-      <div class="p-2 bg-white shadow-sm rounded">
-        Soeta-01
+        <h3 class="font-weight-bold">Soekarno Hatta</h3>
       </div>
     </div>
   </div>

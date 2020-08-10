@@ -33,13 +33,13 @@
     </div>
     <div class="d-flex justify-content-center">
         <div>
-            <button class="btn btn-outline-primary">
+            <button class="btn btn-outline-danger">
                 <i class="fa fa-arrow-left"></i>
             </button>
-            <button class="btn btn-outline-primary">
+            <button class="btn btn-outline-danger">
                 1
             </button>
-            <button class="btn btn-outline-primary">
+            <button class="btn btn-outline-danger">
                 <i class="fa fa-arrow-right"></i>
             </button>
         </div>
