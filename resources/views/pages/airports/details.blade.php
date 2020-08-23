@@ -15,7 +15,7 @@
   </div>
   <div class="d-flex justify-content-between">
     <!-- Last 30 Day's Transaction -->
-    <div class="p-3 rounded shadow-sm flex-fill mr-2">
+    <div class="p-3 rounded shadow-sm flex-fill mr-2 bg-white">
       <div id="chart" style="width:100%; height:400px;"></div>
     </div>
     <!-- Last Activity -->
@@ -41,6 +41,48 @@
           <i class="fa fa-forward pl-2"></i>
         </a>
       </div>
+    </div>
+  </div>
+  <div class="p-3 rounded bg-white shadow-sm">
+    <div class="font-weight-bold h5">Unit List</div>
+    <div>
+      <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Interlock Status</th>
+                    <th scope="col">Total Transaction</th>
+                    <th scope="col">Total Volume (L)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="/airport/1/log-report/1" class="btn btn-outline-link">
+                          Soe - 01
+                        </a>
+                    </td>
+                    <td>Off</td>
+                    <td>Off</td>
+                    <td>35</td>
+                    <td>1554532</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div>
+            <button class="btn btn-outline-danger">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+            <button class="btn btn-outline-danger">
+                1
+            </button>
+            <button class="btn btn-outline-danger">
+                <i class="fa fa-arrow-right"></i>
+            </button>
+        </div>
     </div>
   </div>
 </section>
@@ -71,14 +113,14 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     yAxis: {
         title: {
-            text: 'Wind speed (m/s)'
+            text: 'Transaction'
         },
         minorGridLineWidth: 0,
         gridLineWidth: 0,
-        alternateGridColor: null
-    },
-    tooltip: {
-        valueSuffix: ' m/s'
+        alternateGridColor: null,
+        plotBands: [{
+          color: '#e6ebf5'
+        }]
     },
     plotOptions: {
         spline: {
@@ -96,14 +138,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     },
     series: [{
-      name: 'Hestavollane',
+      name: 'Transaction',
       data: [
           3.7, 3.3, 3.9, 5.1, 3.5, 3.8, 4.0, 5.0, 6.1, 3.7, 3.3, 6.4,
           6.9, 6.0, 6.8, 4.4, 4.0, 3.8, 5.0, 4.9, 9.2, 9.6, 9.5, 6.3,
           9.5, 10.8, 14.0, 11.5, 10.0, 10.2, 10.3, 9.4, 8.9, 10.6, 10.5, 11.1,
           10.4, 10.7, 11.3, 10.2, 9.6, 10.2, 11.1, 10.8, 13.0, 12.5, 12.5, 11.3,
           10.1
-      ]
+      ],
+      color: '#ff0000'
     }],
     navigation: {
         menuItemStyle: {

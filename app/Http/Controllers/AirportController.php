@@ -38,4 +38,8 @@ class AirportController extends Controller
     public function log($airportId, $productId) {
         return view('pages.airports.log');
     }
+
+    public function logReport($airportId, $productId) {
+        return view('pages.airports.log-report');
+    }
 }

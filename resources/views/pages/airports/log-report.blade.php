@@ -4,7 +4,7 @@
   <div class="p-2 d-flex justify-content-between">
     <div class="d-flex">
       <div>
-        <a href="/airport" class="btn btn-outline-link">
+        <a href="/airport/1" class="btn btn-outline-link">
           <i class="fa fa-arrow-left"></i>
         </a>
       </div>
