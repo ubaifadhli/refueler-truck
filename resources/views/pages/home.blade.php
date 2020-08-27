@@ -21,7 +21,7 @@
     <div class="d-flex justify-content-between mb-3">
         <!-- Last 30 Day's Transaction -->
         <div class="p-3 rounded shadow-sm flex-fill mr-2 bg-white">
-        <div id="chart" style="width:100%; height:400px;"></div>
+            <div id="chart" style="width:100%; height:400px;"></div>
         </div>
         <!-- Last Activity -->
         <div class="bg-danger p-3 rounded">

@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between mb-4">
     <!-- Last 30 Day's Transaction -->
     <div class="p-3 rounded shadow-sm flex-fill mr-2 bg-white">
       <div id="chart" style="width:100%; height:400px;"></div>

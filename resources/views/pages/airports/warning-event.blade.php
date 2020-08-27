@@ -4,18 +4,18 @@
   <div class="p-2 d-flex justify-content-between">
     <div class="d-flex">
       <div>
-        <a href="/airport/1" class="btn btn-outline-link">
+        <a href="/airport/1/product/1" class="btn btn-outline-link">
           <i class="fa fa-arrow-left"></i>
         </a>
       </div>
       <div>
-        <h3 class="font-weight-bold">Log Report</h3>
+        <h3 class="font-weight-bold">Warning Event</h3>
       </div>
     </div>
     <div class="d-flex">
       <div class="p-2">Unit</div>
       <div class="p-2 bg-white shadow-sm rounded">
-        Soeta-01
+        Jet A-1
       </div>
     </div>
   </div>
@@ -24,25 +24,15 @@
             <thead>
                 <tr>
                     <th scope="col">Date Time</th>
-                    <th scope="col">Start Time</th>
-                    <th scope="col">Stop Time</th>
-                    <th scope="col">Receipt ID</th>
-                    <th scope="col">Total Volume (L)</th>
-                    <th scope="col">Total Warning</th>
-                    <th scope="col">Product</th>
+                    <th scope="col">Warning Event</th>
+                    <th scope="col">Warning Device</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>2020-01-14 09:38:46</td>
-                    <td>09:38:46</td>
-                    <td>10:38:46</td>
-                    <td>260</td>
-                    <td>216808</td>
-                    <td>1</td>
-                    <td>
-                      <a href="/airport/1/product/1" class="btn btn-outline-link">Jet A-1</a>
-                    </td>
+                    <td>Error: 772</td>
+                    <td>PreciNODE Error</td>
                 </tr>
             </tbody>
         </table>

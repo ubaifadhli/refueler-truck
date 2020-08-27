@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/airport/{id}', 'AirportController@details')->name('airport.details');
     Route::get('/airport/{airportId}/log/{productId}', 'AirportController@log')->name('airport.log');
     Route::get('/airport/{airportId}/log-report/{productId}', 'AirportController@logReport')->name('airport.log-report');
+    Route::get('/airport/{airportId}/product/{productId}', 'AirportController@product')->name('airport.product');
+    Route::get('/airport/{airportId}/product/{productId}/warning-event', 'AirportController@warningEvent')->name('airport.warning-event');
     Route::get('/log', 'LogController@index')->name('log.index');
     Route::get('/unit', 'UnitController@index')->name('unit.index');
 });
