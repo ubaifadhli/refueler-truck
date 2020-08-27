@@ -15,7 +15,7 @@
     <div class="d-flex">
       <div class="p-2">Unit</div>
       <div class="p-2 bg-white shadow-sm rounded">
-        Soeta-01
+        Jet A-1
       </div>
     </div>
   </div>

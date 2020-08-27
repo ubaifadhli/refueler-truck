@@ -30,11 +30,11 @@
                 <table>
                 <tbody>
                     <tr>
-                    <td class="font-weight-bold text-white">Soe - 01</td>
+                    <td class="font-weight-bold text-white">Jet A-1</td>
                     <td class="text-white pl-2">Gain 20 Transaction</td>
                     </tr>
                     <tr>
-                    <td class="font-weight-bold text-white">Soe - 01</td>
+                    <td class="font-weight-bold text-white">Jet A-1</td>
                     <td class="text-white pl-2">Gain 10 Transaction</td>
                     </tr>
                 </tbody>

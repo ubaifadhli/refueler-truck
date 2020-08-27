@@ -25,11 +25,11 @@
         <table>
           <tbody>
             <tr>
-              <td class="font-weight-bold text-white">Soe - 01</td>
+              <td class="font-weight-bold text-white">Jet A-1</td>
               <td class="text-white pl-2">Gain 20 Transaction</td>
             </tr>
             <tr>
-              <td class="font-weight-bold text-white">Soe - 01</td>
+              <td class="font-weight-bold text-white">Jet A-1</td>
               <td class="text-white pl-2">Gain 10 Transaction</td>
             </tr>
           </tbody>
@@ -60,7 +60,7 @@
                 <tr>
                     <td>
                         <a href="/airport/1/log-report/1" class="btn btn-outline-link">
-                          Soe - 01
+                          Jet A-1
                         </a>
                     </td>
                     <td>Off</td>
