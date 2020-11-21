@@ -30,3 +30,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/log', 'LogController@index')->name('log.index');
     Route::get('/unit', 'UnitController@index')->name('unit.index');
 });
+
+// // Testing routing for Airport CRUD
+//
+// Route::get('add','AirportController@create');
+// Route::post('add','AirportController@store');
+// Route::get('/','AirportController@index');
+// Route::get('edit/{id}','AirportController@edit');
+// Route::post('edit/{id}','AirportController@update');
+// Route::delete('{id}','AirportController@destroy');
+
+// // Testing routing for Truck Unit CRUD
+//
+// Route::get('add','UnitController@create');
+// Route::post('add','UnitController@store');
+// Route::get('/','UnitController@index');
+// Route::get('edit/{id}','UnitController@edit');
+// Route::post('edit/{id}','UnitController@update');
+// Route::delete('{id}','UnitController@destroy');

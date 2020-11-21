@@ -9,7 +9,7 @@
         </a>
       </div>
       <div>
-        <h3 class="font-weight-bold">Soekarno Hatta</h3>
+        <h3 class="font-weight-bold">{{$airport->name}}</h3>
       </div>
     </div>
   </div>
@@ -57,17 +57,19 @@
                 </tr>
             </thead>
             <tbody>
+              @foreach($units as $unit)
                 <tr>
                     <td>
                         <a href="/airport/1/log-report/1" class="btn btn-outline-link">
-                          Jet A-1
+                          {{$unit->name}}
                         </a>
                     </td>
-                    <td>Off</td>
-                    <td>Off</td>
-                    <td>35</td>
-                    <td>1554532</td>
+                    <td>{{$unit->getStatus()}}</td>
+                    <td>{{$unit->getInterlockStatus()}}</td>
+                    <td>{{$unit->getTotalTransaction()}}</td>
+                    <td>{{$unit->getTotalVolume()}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

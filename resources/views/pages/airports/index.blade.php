@@ -6,7 +6,7 @@
             <h3 class="font-weight-bold">Airport List</h3>
         </div>
         <div>
-            <input type="text" class="form-control" placeholder="Search">    
+            <input type="text" class="form-control" placeholder="Search">
         </div>
     </div>
     <div class="pt-4">
@@ -19,15 +19,17 @@
                 </tr>
             </thead>
             <tbody>
+              @foreach($airports as $airport)
                 <tr>
                     <td>
-                        <a href="/airport/1" class="btn btn-outline-link">
-                            Soekarno Hatta
+                        <a href="/airport/{{$airport->id}}" class="btn btn-outline-link">
+                            {{$airport->name}}
                         </a>
                     </td>
-                    <td>2</td>
-                    <td>1554532</td>
+                    <td>{{$airport->getTotalUnit()}}</td>
+                    <td>{{$airport->getTotalVolume()}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
